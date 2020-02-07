@@ -28,7 +28,7 @@ const PageSwitcher = ({ Component, pageProps, router, children }) => {
                 router.events.off('routeChangeStart', callback);
             };
         },
-        getCurrentLocationObject: () => location,
+        getCurrentLocation: () => location,
         stateStorage: new StateStorage(router),
     }), [router]);
 

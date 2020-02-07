@@ -4,7 +4,7 @@ const STATE_KEY_PREFIX = '@@scroll|';
 
 export default class StateStorage {
     constructor(router) {
-        this.getFallbackLocationKey = router.createPath;
+        this.getFallbackLocationKey = () => router.route;
     }
 
     read(location, key) {
