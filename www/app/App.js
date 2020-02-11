@@ -9,6 +9,7 @@ import { trackPageViews } from '../shared/utils/google-analytics';
 import SEO_DATA from './App.data.js';
 import { PageSwitcher, MainLayout } from '../shared/components';
 import styles from './App.module.css';
+// import { LayoutManager } from '@moxy/next-layout';
 
 export const App = ({ Component, pageProps, router }) => {
     useEffect(() => trackPageViews(router), [router]);
@@ -61,6 +62,9 @@ export const App = ({ Component, pageProps, router }) => {
                                 onEntered={ onEntered }
                                 onExited={ onExited }
                                 timeout={ 400 }>
+                                {/* <LayoutManager
+                                    Component={ Component }
+                                    pageProps={ pageProps } /> */}
                                 <Component { ...pageProps } />
                             </CSSTransition>
                         )}

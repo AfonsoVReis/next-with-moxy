@@ -22,6 +22,16 @@ const Header = ({ className }) => (
                     <a>Newsletter</a>
                 </Link>
             </li>
+            <li>
+                <Link href="/article/[id]" as="/article/1">
+                    <a>Article 1</a>
+                </Link>
+            </li>
+            <li>
+                <Link href="/article/[id]" as="/article/2">
+                    <a>Article 2</a>
+                </Link>
+            </li>
         </ul>
     </header>
 );
