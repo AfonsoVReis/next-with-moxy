@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import { MainLayout } from '../../shared/components';
+import { withLayout } from '@moxy/next-layout';
 
 import styles from './Newsletter.module.css';
 
@@ -15,4 +17,4 @@ Newsletter.propTypes = {
     className: PropTypes.string,
 };
 
-export default Newsletter;
+export default withLayout(<MainLayout />)(Newsletter);

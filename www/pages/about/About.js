@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import { withLayout } from '@moxy/next-layout';
+import { MainLayout } from '../../shared/components';
 
 import styles from './About.module.css';
 
@@ -34,4 +36,4 @@ About.propTypes = {
     className: PropTypes.string,
 };
 
-export default About;
+export default withLayout(<MainLayout />)(About);

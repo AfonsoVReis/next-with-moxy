@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { FormattedMessage } from 'react-intl';
-import { Contacts } from '../../shared/components';
+import { Contacts, MainLayout } from '../../shared/components';
+import { withLayout } from '@moxy/next-layout';
 
 import styles from './Home.module.css';
 
@@ -38,4 +39,4 @@ Home.propTypes = {
     className: PropTypes.string,
 };
 
-export default Home;
+export default withLayout(<MainLayout />)(Home);

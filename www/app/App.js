@@ -7,9 +7,9 @@ import { withNextIntlSetup } from '@moxy/next-intl';
 import nextIntlConfig from '../../intl';
 import { trackPageViews } from '../shared/utils/google-analytics';
 import SEO_DATA from './App.data.js';
-import { PageSwitcher, MainLayout } from '../shared/components';
+import { PageSwitcher } from '../shared/components';
 import styles from './App.module.css';
-// import { LayoutManager } from '@moxy/next-layout';
+import { LayoutManager } from '@moxy/next-layout';
 
 export const App = ({ Component, pageProps, router }) => {
     useEffect(() => trackPageViews(router), [router]);
@@ -48,28 +48,26 @@ export const App = ({ Component, pageProps, router }) => {
                 <meta property="twitter:image" content={ SEO_DATA.image.src } />
             </Head>
             <KeyboardOnlyOutlines>
-                <MainLayout>
-                    <PageSwitcher Component={ Component } pageProps={ pageProps } router={ router }>
-                        { ({ Component, pageProps, in: inProp, onEntered, onExited }) => (
-                            <CSSTransition
-                                classNames={ {
-                                    enter: styles.pageEnter,
-                                    enterActive: styles.pageEnterActive,
-                                    exit: styles.pageExit,
-                                    exitActive: styles.pageExitActive,
-                                } }
-                                in={ inProp }
-                                onEntered={ onEntered }
-                                onExited={ onExited }
-                                timeout={ 400 }>
-                                {/* <LayoutManager
-                                    Component={ Component }
-                                    pageProps={ pageProps } /> */}
-                                <Component { ...pageProps } />
-                            </CSSTransition>
-                        )}
-                    </PageSwitcher>
-                </MainLayout>
+                <PageSwitcher Component={ Component } pageProps={ pageProps } router={ router }>
+                    { ({ Component, pageProps, in: inProp, onEntered, onExited }) => (
+                        <CSSTransition
+                            classNames={ {
+                                enter: styles.pageEnter,
+                                enterActive: styles.pageEnterActive,
+                                exit: styles.pageExit,
+                                exitActive: styles.pageExitActive,
+                            } }
+                            in={ inProp }
+                            onEntered={ onEntered }
+                            onExited={ onExited }
+                            timeout={ 400 }>
+                            <LayoutManager
+                                Component={ Component }
+                                pageProps={ pageProps } />
+                            {/* <Component { ...pageProps } /> */}
+                        </CSSTransition>
+                    )}
+                </PageSwitcher>
             </KeyboardOnlyOutlines>
         </>
     );
