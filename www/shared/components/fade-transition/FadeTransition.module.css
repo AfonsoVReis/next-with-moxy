@@ -1,0 +1,19 @@
+@import "../../styles/imports/variables";
+
+.enter {
+    opacity: 0;
+}
+
+.enterActive {
+    opacity: 1;
+    transition: opacity var(--duration-long);
+}
+
+.exit {
+    opacity: 1;
+}
+
+.exitActive {
+    opacity: 0;
+    transition: opacity var(--duration-long);
+}
